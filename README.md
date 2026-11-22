@@ -78,7 +78,7 @@ sessionStorage.setItem("sa.profil", JSON.stringify({ id: crypto.randomUUID(), ps
 Pour avoir le dictionnaire complet en local (sinon il vient du CDN) :
 
 ```bash
-npm install --no-save an-array-of-french-words@2
+npm install --no-save an-array-of-french-words@2.0.0
 node scripts/dictionnaire.mjs
 ```
 
