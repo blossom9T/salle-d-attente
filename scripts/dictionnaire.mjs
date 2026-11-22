@@ -2,7 +2,7 @@
 // du paquet npm « an-array-of-french-words » (~336 000 mots, licence MIT).
 //
 // Le déploiement GitHub Actions le fait tout seul. Pour le faire à la main :
-//   npm install --no-save an-array-of-french-words@2
+//   npm install --no-save an-array-of-french-words@2.0.0
 //   node scripts/dictionnaire.mjs
 import { writeFileSync } from "node:fs";
 import { createRequire } from "node:module";
