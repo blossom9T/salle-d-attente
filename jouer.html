@@ -4808,11 +4808,21 @@ class Salon {
     this.pret = true;
     this.elire();
     this.signaler();
+    // Filet de sécurité : tant qu'on n'a pas reçu l'état, on le redemande,
+    // et l'hôte le renvoie de lui-même toutes les 4,5 secondes.
+    let essais = 0;
+    this.relance = setInterval(() => {
+      if (this.ferme) return clearInterval(this.relance);
+      if (this.estHote && ++this.battementHote % 3 === 0) this.envoyerEtat();
+      else if (!this.public && essais++ < 20) this.transport.envoyer("coucou", {});
+    }, 1500);
+    this.battementHote = 0;
   }
 
   async quitter() {
     this.ferme = true;
     clearInterval(this.horloge);
+    clearInterval(this.relance);
     clearTimeout(this.diffusionPrevue);
     await this.transport?.quitter();
   }
