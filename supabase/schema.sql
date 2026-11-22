@@ -200,7 +200,10 @@ create policy "Lecture publique" on public.parties   for select to anon, authent
 create policy "Lecture publique" on public.resultats for select to anon, authenticated using (true);
 
 grant usage on schema public to anon, authenticated;
-grant select on public.jeux, public.joueurs, public.parties, public.resultats to anon, authenticated;
+grant select on public.jeux, public.joueurs, public.resultats to anon, authenticated;
+-- Pour parties : pas de colonne « salon », pour que personne ne puisse lister les numéros de salon.
+revoke select on public.parties from anon, authenticated;
+grant select (id, jeu, nb_joueurs, jouee_le) on public.parties to anon, authenticated;
 grant select on public.classement_general, public.classement_jeux, public.dernieres_parties to anon, authenticated;
 revoke insert, update, delete, truncate on public.jeux, public.joueurs, public.parties, public.resultats from anon, authenticated;
 
