@@ -5,7 +5,7 @@
 //   3. un petit dictionnaire de secours intégré (≈ 1 300 mots)
 import { normaliser } from "./outils.js";
 
-const PAQUET = "https://cdn.jsdelivr.net/npm/an-array-of-french-words@2";
+const PAQUET = "https://cdn.jsdelivr.net/npm/an-array-of-french-words@2.0.0"; // version figée
 
 let promesse = null;
 
