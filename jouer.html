@@ -2696,7 +2696,7 @@ const enLigne = Boolean(SUPABASE_URL && SUPABASE_CLE);
 let clientSupabase = null;
 function supabase() {
   if (!enLigne) return Promise.resolve(null);
-  clientSupabase ||= import("https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm").then(({ createClient }) =>
+  clientSupabase ||= import("https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.119.2/+esm").then(({ createClient }) =>
     createClient(SUPABASE_URL, SUPABASE_CLE, {
       auth: { persistSession: false, autoRefreshToken: false },
       realtime: { params: { eventsPerSecond: 20 } },
@@ -2833,7 +2833,7 @@ __m["assets/js/dico.js"] = (() => { const __e = {};
 //   3. un petit dictionnaire de secours intégré (≈ 1 300 mots)
 const { normaliser } = __m["assets/js/outils.js"];
 
-const PAQUET = "https://cdn.jsdelivr.net/npm/an-array-of-french-words@2";
+const PAQUET = "https://cdn.jsdelivr.net/npm/an-array-of-french-words@2.0.0"; // version figée
 
 let promesse = null;
 
