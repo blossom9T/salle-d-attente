@@ -13,7 +13,7 @@ export const enLigne = Boolean(SUPABASE_URL && SUPABASE_CLE);
 let clientSupabase = null;
 export function supabase() {
   if (!enLigne) return Promise.resolve(null);
-  clientSupabase ||= import("https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm").then(({ createClient }) =>
+  clientSupabase ||= import("https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.119.2/+esm").then(({ createClient }) =>
     createClient(SUPABASE_URL, SUPABASE_CLE, {
       auth: { persistSession: false, autoRefreshToken: false },
       realtime: { params: { eventsPerSecond: 20 } },
